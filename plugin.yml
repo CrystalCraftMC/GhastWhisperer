@@ -1,0 +1,14 @@
+name: PvpStorm
+main: com.gmail.www.woodrow73.pvpstorm.PvpStorm
+version: 0.1
+commands:
+   ghastDisplay:
+      usage:
+         Used to customize ghast-riding
+      command:
+         <command>
+   ghastRide:
+      usage:
+         Used to actually spawn the ghast and it's passengers
+      command:
+         <command>
