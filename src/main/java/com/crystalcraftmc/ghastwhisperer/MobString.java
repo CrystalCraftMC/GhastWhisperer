@@ -1,18 +1,25 @@
-package com.gmail.www.woodrow73.pvpstorm;
-import java.util.ArrayList;
+/*
+ * Copyright 2015 CrystalCraftMC
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+package com.crystalcraftmc.ghastwhisperer;
 
 import org.bukkit.Location;
-import org.bukkit.entity.Bat;
-import org.bukkit.entity.Cow;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Ghast;
-import org.bukkit.entity.Ocelot;
-import org.bukkit.entity.Pig;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Sheep;
-import org.bukkit.entity.Skeleton;
-import org.bukkit.entity.Witch;
-import org.bukkit.entity.Wolf;
+import org.bukkit.entity.*;
+
+import java.util.ArrayList;
 public class MobString {
 	//private WaterGunListener globalWgl;
 	
