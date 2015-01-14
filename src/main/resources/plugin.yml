@@ -1,6 +1,7 @@
-name: PvpStorm
-main: com.gmail.www.woodrow73.pvpstorm.PvpStorm
-version: 0.1
+name: Ghast Whisperer
+main: com.crystalcraftmc.ghastwhisperer
+version: ${version}
+
 commands:
    ghastDisplay:
       usage:
