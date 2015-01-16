@@ -1129,7 +1129,7 @@ public class MobString {
 		pigArray4 = new ArrayList<Pig>();
 		cowArray4 = new ArrayList<Cow>();
 		skellyArray4 = new ArrayList<Skeleton>();
-		batArray3 = new ArrayList<Bat>();
+		batArray4 = new ArrayList<Bat>();
 	}
 	private Sheep getFinalSheepObject(int whichTier) {
 		switch(whichTier) {
