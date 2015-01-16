@@ -140,6 +140,16 @@ public class ConfigureData {
 					else if(whichMobString == 2 && numMobs == 0 && (globalMs.numberMobs4 != 0)) {
 						isImproper = true;
 					}
+					else if(whichMobString == 3 && numMobs != 0 && (globalMs.numberMobs3 == 0 || globalMs.numberMobs2 == 0 ||
+								globalMs.numberMobs1 == 0)) {
+						isImproper = true;
+					}
+					else if(whichMobString == 2 && numMobs != 0 && (globalMs.numberMobs2 == 0 || globalMs.numberMobs1 == 0)) {
+						isImproper = true;
+					}
+					else if(whichMobString == 1 && numMobs != 0 && (globalMs.numberMobs1 == 0)) {
+						isImproper = true;
+					}
 				
 				if(isImproper) {
 					JOptionPane.showMessageDialog(null, "" +
