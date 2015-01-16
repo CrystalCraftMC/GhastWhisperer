@@ -125,24 +125,22 @@ public class ConfigureData {
 	private class ApplyListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int whichMobString = stringNum.getSelectedIndex();
-			
+			int numMobs = numberMobs.getValue();
 			if(e.getSource() == apply) {
 				boolean isImproper = false; //equals true if a 'no mob' mobstring comes before a mob string
 				
-				if(whichMobString != 0) {
-					if((whichMobString == 1 && numberMobs.getValue() != 0) && globalMs.mobOfChoice1.equalsIgnoreCase("no mob"))
-						isImproper = true;
-					else if((whichMobString == 2 && numberMobs.getValue() != 0) && (globalMs.mobOfChoice1.equalsIgnoreCase("no mob") ||
-										globalMs.mobOfChoice2.equalsIgnoreCase("no mob"))) {
+				if(whichMobString == 0 && numMobs == 0 && (globalMs.numberMobs2 != 0 ||
+								globalMs.numberMobs3 != 0 || globalMs.numberMobs4 != 0)) {
 						isImproper = true;
 					}
-					else if((whichMobString == 3 && numberMobs.getValue() != 0) && (globalMs.mobOfChoice1.equalsIgnoreCase("no mob") ||
-								globalMs.mobOfChoice2.equalsIgnoreCase("no mob") || globalMs.mobOfChoice3.equalsIgnoreCase("no mob"))) {
+					else if(whichMobString == 1 && numMobs == 0 && (globalMs.numberMobs3 != 0 ||
+								globalMs.numberMobs4 != 0)) {
 						isImproper = true;
 					}
-				}
-				else
-					isImproper = false;
+					else if(whichMobString == 2 && numMobs == 0 && (globalMs.numberMobs4 != 0)) {
+						isImproper = true;
+					}
+				
 				if(isImproper) {
 					JOptionPane.showMessageDialog(null, "" +
 							"Error; you cannot have a Mob String\n" +
