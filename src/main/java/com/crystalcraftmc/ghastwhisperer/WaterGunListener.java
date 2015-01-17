@@ -30,11 +30,13 @@ import org.bukkit.inventory.ItemStack;
 public class WaterGunListener implements Listener {
 	MobString ms;
 	ConfigureData cd;
+	AdvancedSettings as;
 	public WaterGunListener(PvpStorm plugin) {
 		plugin.getLogger().info("water_gun_listener plugin enabled");
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		ms = new MobString(this);
-		cd = new ConfigureData(this, ms);
+		as = new AdvancedSettings(ms);
+		cd = new ConfigureData(this, ms, as);
 	}
 	
 	public void display(Player p) {
