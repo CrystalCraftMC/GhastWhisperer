@@ -27,20 +27,23 @@ import java.awt.event.ItemListener;
 public class ConfigureData {
 	//private WaterGunListener globalWgl;
 	private MobString globalMs;
+	private AdvancedSettings globalAs;
+	
 	private JFrame jf;
 	private JPanel jp1;
 	private JPanel jp2;
-	private JComboBox stringNum;
-	private JComboBox mobType;
-	private JComboBox projectile;
+	private JComboBox<String> stringNum;
+	private JComboBox<String> mobType;
+	private JButton advanced;
 	private JLabel sliderTitle;
 	private JSlider numberMobs;
 	private JButton apply;
 	private JButton getStringData;
 	
-	public ConfigureData(WaterGunListener wgl, MobString ms) {
+	public ConfigureData(WaterGunListener wgl, MobString ms, AdvancedSettings as) {
 		//globalWgl = wgl;
 		globalMs = ms;
+		globalAs = as;
 		
 		jf = new JFrame("Customize Your Ride");
 		jf.setSize(500, 400);
@@ -58,7 +61,6 @@ public class ConfigureData {
 							"Mob String 3", "Mob String 4" };
 		String[] mobTypeString = { "Sheep", "Wolf", "Witch", "Ocelot", "Pig",
 									"Cow", "Skeleton", "Bat" };
-		String[] projectileString = { "Normal", "Fireball", "Arrow", "Snowball", "Egg" };
 		
 		JLabel[] spaces = new JLabel[20];
 		for(int i = 0; i < spaces.length; i++)
@@ -67,7 +69,8 @@ public class ConfigureData {
 		stringNum = new JComboBox(stringNumString);
 		stringNum.addItemListener(new StringChangeListener());
 		mobType = new JComboBox(mobTypeString);
-		projectile = new JComboBox(projectileString);
+		advanced = new JButton("Advanced");
+		advanced.addActionListener(new AdvancedListener());
 		
 		for(int i = 0; i < 14; i++) {
 			switch(i) { //basically an if/else if/else statement
@@ -78,15 +81,15 @@ public class ConfigureData {
 				jp1.add(mobType);
 				break;
 			case 10:
-				jp1.add(projectile);
+				jp1.add(advanced);
 				break;
 			default:
 				jp1.add(spaces[i]);
 				break;
 			}
 		}
-		sliderTitle = new JLabel("      Number Of Mobs In MobString 1");
-		numberMobs = new JSlider(JSlider.HORIZONTAL, 0, 10, 0);
+		sliderTitle = new JLabel("              Number Of Mobs In MobString 1");
+		numberMobs = new JSlider(JSlider.HORIZONTAL, 0, 10, 2);
 		numberMobs.setMajorTickSpacing(5);
 		numberMobs.setMinorTickSpacing(1);
 		numberMobs.setPaintLabels(true);
@@ -104,6 +107,12 @@ public class ConfigureData {
 		jf.add(jp1);
 		jf.add(jp2);
 		jf.setResizable(false);
+		try{
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+			SwingUtilities.updateComponentTreeUI(jf);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		this.colorCode(); //TODO actually make the method
 	}
 	
@@ -119,7 +128,18 @@ public class ConfigureData {
 					String.valueOf(stringNum.getSelectedIndex()+1));
 			getStringData.setText("Get MobString " + String.valueOf(stringNum.getSelectedIndex()+1) +
 					"\'s Data");
-			
+			if(stringNum.getSelectedIndex() == 0) {
+				numberMobs.setValue(globalMs.numberMobs1);
+			}
+			else if(stringNum.getSelectedIndex() == 1) {
+				numberMobs.setValue(globalMs.numberMobs2);
+			}
+			else if(stringNum.getSelectedIndex() == 2) {
+				numberMobs.setValue(globalMs.numberMobs3);
+			}
+			else {
+				numberMobs.setValue(globalMs.numberMobs4);
+			}
 		}
 	}
 	private class ApplyListener implements ActionListener {
@@ -216,7 +236,39 @@ public class ConfigureData {
 			}
 		}
 	}
+	private class AdvancedListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == advanced) {
+				globalAs.display();
+			}
+		}
+	}
 	private void colorCode() {
+		try{
+			jp1.setBackground(Color.GREEN);
+			jp2.setBackground(Color.GREEN);
+			stringNum.setBackground(Color.YELLOW);
+			stringNum.setForeground(Color.BLUE);
+			mobType.setBackground(Color.ORANGE);
+			mobType.setForeground(Color.BLUE);
 		
+			advanced.setBackground(new Color(.58f, .48f, .07f));
+			advanced.setForeground(Color.WHITE);
+			advanced.setBorder(BorderFactory.createBevelBorder(1, Color.BLACK, Color.GRAY,
+							Color.CYAN, Color.CYAN));
+			sliderTitle.setForeground(Color.BLUE);
+			numberMobs.setBackground(Color.CYAN);
+			numberMobs.setForeground(Color.RED);
+			apply.setBackground(new Color(.58f, .46f, .78f));
+			apply.setForeground(Color.ORANGE.brighter());
+			getStringData.setBackground(new Color(.58f, .39f, .78f));
+			getStringData.setForeground(Color.ORANGE.brighter());
+			apply.setBorder(BorderFactory.createBevelBorder(0, Color.ORANGE, Color.RED,
+				Color.RED, Color.RED));
+			getStringData.setBorder(BorderFactory.createBevelBorder(0, Color.RED, Color.ORANGE,
+					Color.ORANGE, Color.ORANGE));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
