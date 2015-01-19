@@ -31,6 +31,8 @@ public class MobString {
 	public int numberMobs1 = 2;
 	public String mobOfChoice2 = "no mob", mobOfChoice3 = "no mob", mobOfChoice4 = "no mob";
 	public int numberMobs2, numberMobs3, numberMobs4 = 0;
+	public Ghast globalGhast;
+	public Player globalPlayer;
 
 	private String chooseMOC(int mobString) {
 		switch(mobString) {
@@ -123,6 +125,8 @@ public class MobString {
 		//globalWgl = wgl;
 	}
 	public void cowboy(Player p, Ghast g, Location loc) {
+		globalGhast = g;
+		globalPlayer = p;
 		this.createMobs(p, g, loc);
 		//TODO There was a list of if, and else if statements for mobString(1-4) to test whether they existed.
 	}
