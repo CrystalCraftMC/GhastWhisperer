@@ -35,7 +35,7 @@ public class WaterGunListener implements Listener {
 		plugin.getLogger().info("water_gun_listener plugin enabled");
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		ms = new MobString(this);
-		as = new AdvancedSettings(ms);
+		as = new AdvancedSettings(ms, plugin);
 		cd = new ConfigureData(this, ms, as);
 	}
 	
