@@ -148,6 +148,7 @@ public class AdvancedSettings implements Listener {
 		Player p = globalMs.globalPlayer;
 		int pitch = (int)p.getEyeLocation().getPitch();
 		int yaw = (int)p.getEyeLocation().getYaw();
+		yaw = (int)Math.abs(yaw);
 		double xVel = 0;
 		double yVel = 0;
 		double zVel = 0;
