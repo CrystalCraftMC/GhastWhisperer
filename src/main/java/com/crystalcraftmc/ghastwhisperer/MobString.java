@@ -23,10 +23,13 @@ import java.util.ArrayList;
 
 public class MobString {
 	//private WaterGunListener globalWgl;
-	private ArrayList<Entity> array1, array2, array3, array4 = new ArrayList<Entity>();
+	private ArrayList<Entity> array1 = new ArrayList<Entity>();
+	private ArrayList<Entity> array2 = new ArrayList<Entity>();
+	private ArrayList<Entity> array3 = new ArrayList<Entity>();
+	private ArrayList<Entity> array4 = new ArrayList<Entity>();
 	public String mobOfChoice1 = "wolf";
 	public int numberMobs1 = 2;
-	public String mobOfChoice2, mobOfChoice3, mobOfChoice4 = "no mob";
+	public String mobOfChoice2 = "no mob", mobOfChoice3 = "no mob", mobOfChoice4 = "no mob";
 	public int numberMobs2, numberMobs3, numberMobs4 = 0;
 
 	private String chooseMOC(int mobString) {
