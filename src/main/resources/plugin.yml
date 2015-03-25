@@ -1,15 +1,13 @@
-name: Ghast Whisperer
+name: GhastWhisperer
 main: com.crystalcraftmc.ghastwhisperer
-version: ${version}
+version: 0.1.1
+authors: [Jwood9198, jflory7]
+website: http://crystalcraftmc.com
 
 commands:
    ghastDisplay:
-      usage:
-         Used to customize ghast-riding
-      command:
-         <command>
+      usage: Used to customize ghast-riding
+      command: /<command>
    ghastRide:
-      usage:
-         Used to actually spawn the ghast and it's passengers
-      command:
-         <command>
+      usage: Used to actually spawn the ghast and it's passengers
+      command: <command>
